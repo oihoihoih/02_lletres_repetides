@@ -1,19 +1,13 @@
-var myName = ["o","i","h","a","n","e","c","h","o","u","r","r","a","u","t"];
-
-
-var listaLetras = myName.map(function(letra) {
-    let nro = 0;
-    for (let i = 0;  i<myName.length;  i++){
-        // Con este bucle busco cuántas veces se repite una letra
-        if (letra == myName[i]) {
-            nro ++;
-            if (nro > 1) {
-                /*con este método consigo eliminar las letras a partir de la primera duplicada*/
-                myName.splice(i,1);
-            }
+var letras = new Map()
+    var palabra = ["o","i","h","a","n","e","c","h","o","u","r","r","r","a","u","t"];
+    var number = 1;
+    palabra.forEach(letter => {
+        if (letras.has(letter) === false) {
+            letras.set(letter, number)
+        } else {
+            //Obtengo el valor de cada letra para sumarle 1 por si se repite más de 1 vez
+            letras.set(letter, (letras.get(letter)) + 1);
         }
-    }
-    return (letra + ": " + nro);
-});
 
-console.log(listaLetras);
+    })
+console.log(letras);
